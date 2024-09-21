@@ -1,0 +1,124 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Shows list",
+        "description": "Ticket test API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/shows/{showId}/events": {
+            "get": {
+                "summary": "Show's events list.",
+                "description": "Show list of available show events",
+                "operationId": "GetShowEvents",
+                "parameters": [
+                    {
+                        "name": "showId",
+                        "in": "path",
+                        "description": "Show ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show list of available show events"
+                    },
+                    "405": {
+                        "description": "Request method not allowed"
+                    }
+                }
+            }
+        },
+        "/api/events/{eventId}/places": {
+            "get": {
+                "summary": "Event's places list.",
+                "description": "Show list of available event's places",
+                "operationId": "GetEventPlaces",
+                "parameters": [
+                    {
+                        "name": "eventId",
+                        "in": "path",
+                        "description": "Event ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Show list of available event's places"
+                    },
+                    "405": {
+                        "description": "Request method not allowed"
+                    }
+                }
+            }
+        },
+        "/api/events/{eventId}/reserve": {
+            "post": {
+                "summary": "Places reserve.",
+                "description": "Reserve places",
+                "operationId": "ReservePlaces",
+                "parameters": [
+                    {
+                        "name": "eventId",
+                        "in": "path",
+                        "description": "Event ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Customer name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "places",
+                        "in": "query",
+                        "description": "Places Ids",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Places is reserved"
+                    },
+                    "405": {
+                        "description": "Request method not allowed"
+                    }
+                }
+            }
+        },
+        "/api/shows": {
+            "get": {
+                "summary": "Shows list.",
+                "description": "Show list of available shows",
+                "operationId": "GetShows",
+                "responses": {
+                    "200": {
+                        "description": "Show list of available shows"
+                    },
+                    "405": {
+                        "description": "Request method not allowed"
+                    }
+                }
+            }
+        }
+    }
+}
