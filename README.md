@@ -27,3 +27,4 @@ sail artisan l5-swagger:generate
 ```
 
 - Visit `http://localhost/api/shows`
+- SwaggerUI `http://localhost/api/documentation`
